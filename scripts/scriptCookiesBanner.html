@@ -1,0 +1,22 @@
+<!-- cookies -->
+  <div id="cookies">
+    <p>Nasz serwis korzysta z plików cookies. Szczegółowe informacje znajdują się w naszej <a href="./privacy-policy.php">polityce prywatności</a>.
+      Wyłączenia opcji zapisywania plików cookies można dokonać w ustawieniach przeglądarki internetowej. Dalsze korzystanie ze strony oznacza zgodę na ich użycie.  </p>
+    <button class="cookie-accept" id="cookie-accept" type="button">Zgoda</button>
+  </div>
+
+  <script>
+    if(document.cookie.indexOf("cookies_comply=")!=-1)
+    {
+      document.getElementById("cookies").style.display = "none";
+    }
+
+    document.getElementById("cookie-accept").onclick = function(e)
+    {
+      today = new Date();
+      today.setTime(today.getTime()+(60*60*24*30));
+      document.cookie = "cookies_comply = true; expires = " + today.toGMTString();
+      document.getElementById("cookies").style.display = "none";
+    }
+  </script>
+<!-- cookies -->
